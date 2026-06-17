@@ -387,17 +387,56 @@
             </div>
         </section>
 
-        <!-- Ad slot -->
-        <div class="ad-slot">
+        <!-- Ad slot - Google AdSense -->
+        <div class="ad-slot" id="ad-banner">
             <p>📢 广告位招租 | 联系站长投放广告</p>
+            <!-- Google AdSense 代码位置 - 申请通过后替换 -->
+            <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script> -->
+            <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+            <!-- <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+        </div>
+
+        <!-- 打赏区域 -->
+        <div class="tool-card" style="text-align:center;margin:20px 0;">
+            <h2>☕ 请作者喝杯咖啡</h2>
+            <p>如果这个工具对你有帮助，可以请作者喝杯咖啡 ☕</p>
+            <div style="margin:16px 0;">
+                <button class="btn btn-primary" onclick="showDonate()" style="font-size:16px;padding:12px 32px;">
+                    💰 打赏作者
+                </button>
+            </div>
+            <div id="donate-area" style="display:none;margin-top:16px;">
+                <p style="color:var(--text-light);margin-bottom:12px;">微信支付 / 支付宝</p>
+                <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
+                    <div style="text-align:center;">
+                        <p style="font-weight:bold;">微信支付</p>
+                        <div id="wechat-qr" style="margin:8px 0;"></div>
+                    </div>
+                    <div style="text-align:center;">
+                        <p style="font-weight:bold;">支付宝</p>
+                        <div id="alipay-qr" style="margin:8px 0;"></div>
+                    </div>
+                </div>
+                <p style="color:var(--text-light);font-size:0.85em;margin-top:12px;">
+                    扫码支付任意金额，感谢支持！
+                </p>
+            </div>
         </div>
     </main>
 
     <footer>
         <div class="container">
             <p>© 2026 在线工具箱 - 免费实用工具集合 | 持续更新中</p>
+            <p style="margin-top:8px;">
+                <a href="https://github.com/HHS3188/online-toolbox" target="_blank" style="color:var(--primary);">GitHub</a> |
+                <span id="visitor-count">访问量: 加载中...</span>
+            </p>
         </div>
     </footer>
+
+    <!-- Google Analytics 代码位置 - 申请后替换 -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> -->
+    <!-- <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
 
     <script>
         // Navigation
@@ -604,6 +643,42 @@
         function copyText(id) {
             const text = document.getElementById(id).value;
             navigator.clipboard.writeText(text).then(() => alert('已复制!'));
+        }
+
+        // Donate button
+        function showDonate() {
+            const area = document.getElementById('donate-area');
+            area.style.display = area.style.display === 'none' ? 'block' : 'none';
+            if (area.style.display === 'block') {
+                // Generate QR codes for payment
+                const wechatDiv = document.getElementById('wechat-qr');
+                const alipayDiv = document.getElementById('alipay-qr');
+                // Replace with your actual payment links/QR codes
+                wechatDiv.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=weixin://dl/business/?t=YOUR_WECHAT_PAY_LINK" alt="微信支付" width="150" height="150">`;
+                alipayDiv.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=alipays://platformapi/startapp?appId=YOUR_ALIPAY_APP_ID" alt="支付宝" width="150" height="150">`;
+            }
+        }
+
+        // Visitor counter (using localStorage as simple counter)
+        function updateVisitorCount() {
+            let count = localStorage.getItem('visitor_count') || 0;
+            count = parseInt(count) + 1;
+            localStorage.setItem('visitor_count', count);
+            document.getElementById('visitor-count').textContent = `访问量: ${count}`;
+        }
+        updateVisitorCount();
+
+        // Share functionality
+        function shareSite() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '在线工具箱 - 免费实用工具集合',
+                    text: '推荐一个超好用的在线工具箱，包含JSON格式化、Base64、二维码生成等9个实用工具！',
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => alert('链接已复制，快去分享吧！'));
+            }
         }
     </script>
 </body>
