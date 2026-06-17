@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支付 - Python自动化工具包</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, sans-serif; background: #f5f5f5; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-bottom: 20px; }
+        .payment-card { background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 16px; }
+        .payment-card h3 { color: #667eea; margin-bottom: 12px; }
+        .payment-card .price { font-size: 2em; color: #e74c3c; font-weight: bold; margin-bottom: 16px; }
+        .payment-card .btn { display: inline-block; background: #667eea; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; margin: 8px; }
+        .payment-card .btn:hover { background: #5a6fd6; }
+        .payment-card .btn.github { background: #333; }
+        .payment-card .btn.github:hover { background: #222; }
+        .payment-card .btn.wechat { background: #07c160; }
+        .payment-card .btn.wechat:hover { background: #06ad56; }
+        .payment-card .btn.alipay { background: #1677ff; }
+        .payment-card .btn.alipay:hover { background: #0e6edf; }
+        .info { background: #f8f9fa; padding: 16px; border-radius: 8px; margin-top: 16px; }
+        .info p { margin: 8px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💰 支付 - Python自动化工具包</h1>
+            <p>选择支付方式完成购买</p>
+        </div>
+
+        <div class="payment-card">
+            <h3>📦 基础版 - Excel自动化工具</h3>
+            <div class="price">¥10</div>
+            <a href="https://github.com/sponsors/HHS3188?frequency=one-time&amount=10" class="btn github">
+                💳 GitHub Sponsors 支付
+            </a>
+        </div>
+
+        <div class="payment-card">
+            <h3>📦 标准版 - 全部工具</h3>
+            <div class="price">¥20</div>
+            <a href="https://github.com/sponsors/HHS3188?frequency=one-time&amount=20" class="btn github">
+                💳 GitHub Sponsors 支付
+            </a>
+        </div>
+
+        <div class="payment-card">
+            <h3>📦 高级版 - 全部工具 + 定制</h3>
+            <div class="price">¥30</div>
+            <a href="https://github.com/sponsors/HHS3188?frequency=one-time&amount=30" class="btn github">
+                💳 GitHub Sponsors 支付
+            </a>
+        </div>
+
+        <div class="payment-card">
+            <h3>💳 其他支付方式</h3>
+            <p>微信/支付宝支付请添加微信联系：</p>
+            <a href="weixin://" class="btn wechat">📱 微信支付</a>
+            <a href="alipay://" class="btn alipay">📱 支付宝</a>
+        </div>
+
+        <div class="info">
+            <p><strong>📧 付款后请发送：</strong></p>
+            <p>1. 付款截图</p>
+            <p>2. 订单号（自动生成）</p>
+            <p>3. 联系方式</p>
+            <p><strong>📦 交付方式：</strong></p>
+            <p>GitHub Release 下载链接</p>
+        </div>
+    </div>
+</body>
+</html>
