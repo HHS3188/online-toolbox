@@ -1,0 +1,90 @@
+================================
+办公自动化工具包 - 使用说明
+================================
+
+📦 包含工具：
+1. Excel 自动化处理工具 (excel_tool.py)
+2. 批量文件重命名工具 (batch_rename.py)
+
+================================
+安装要求
+================================
+
+1. 安装 Python 3.7 或更高版本
+   下载地址：https://www.python.org/downloads/
+
+2. 安装依赖库：
+   pip install pandas openpyxl
+
+================================
+工具1：Excel 自动化处理
+================================
+
+功能：批量合并、数据提取、去重清洗、生成报表
+
+使用方法：
+
+1. 合并多个 Excel 文件：
+   python excel_tool.py merge -i "你的Excel文件夹" -o "合并结果.xlsx"
+
+2. 提取指定列：
+   python excel_tool.py extract -i "文件.xlsx" -c "列名1" "列名2" -o "提取结果.xlsx"
+
+3. 数据去重：
+   python excel_tool.py dedup -i "文件.xlsx" -o "去重结果.xlsx"
+
+4. 数据清洗：
+   python excel_tool.py clean -i "文件.xlsx" -o "清洗结果.xlsx"
+
+5. 生成报表：
+   python excel_tool.py report -i "文件.xlsx" -o "报表.xlsx"
+
+================================
+工具2：批量文件重命名
+================================
+
+功能：前缀、后缀、编号、替换、正则、日期
+
+使用方法：
+
+1. 添加前缀：
+   python batch_rename.py "文件夹路径" -a prefix --prefix "备份_"
+
+2. 添加序号：
+   python batch_rename.py "文件夹路径" -a number --start 1
+
+3. 替换文本：
+   python batch_rename.py "文件夹路径" -a replace --old "旧文本" --new "新文本"
+
+4. 正则替换：
+   python batch_rename.py "文件夹路径" -a regex --pattern-regex "\d+" --new "编号"
+
+5. 添加日期：
+   python batch_rename.py "文件夹路径" -a date
+
+6. 预览模式（不实际执行）：
+   python batch_rename.py "文件夹路径" -a number --preview
+
+================================
+常见问题
+================================
+
+Q: 提示 "No module named 'pandas'" 怎么办？
+A: 运行 pip install pandas openpyxl
+
+Q: 如何查看帮助？
+A: python excel_tool.py -h 或 python batch_rename.py -h
+
+Q: 支持哪些 Excel 格式？
+A: 支持 .xlsx 和 .xls 格式
+
+Q: 可以批量处理子文件夹吗？
+A: 当前版本只处理指定文件夹，不递归子文件夹
+
+================================
+技术支持
+================================
+
+如有问题，请联系卖家。
+
+感谢购买！🙏
